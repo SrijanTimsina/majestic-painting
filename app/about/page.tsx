@@ -1,8 +1,38 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
+import { CheckCircle2 } from "lucide-react";
 
 export default function AboutPage() {
+	const values = [
+		{
+			title: "Quality",
+			description:
+				"We use premium materials and techniques for lasting results.",
+		},
+		{
+			title: "Integrity",
+			description:
+				"Honest communication and transparent pricing are our hallmarks.",
+		},
+		{
+			title: "Professionalism",
+			description:
+				"Our team is punctual, respectful, and highly skilled.",
+		},
+		{
+			title: "Innovation",
+			description:
+				"We stay updated with the latest trends and technologies in painting.",
+		},
+	];
+
 	return (
 		<div className="container mx-auto px-4 py-12">
 			<h1 className="text-4xl font-bold mb-8 text-center">
@@ -20,57 +50,91 @@ export default function AboutPage() {
 					/>
 				</div>
 				<div>
+					<h2 className="text-2xl font-semibold mb-4">Our Story</h2>
 					<p className="text-lg mb-4">
-						At Majestic Painting and Decorating Pty Ltd, we believe
-						that every space has the potential to inspire, transform,
-						and uplift. With decades of expertise and a commitment to
-						excellence, we bring your vision to life through
-						high-quality painting and decorating services that exude
-						elegance and sophistication.
+						Founded in 2005, Majestic Painting and Decorating Pty Ltd
+						has been transforming spaces across Sydney for nearly two
+						decades. Our journey began with a simple vision: to
+						provide top-quality painting services that not only meet
+						but exceed our clients' expectations.
 					</p>
 					<p className="text-lg mb-4">
-						Located in Guildford, we are proud to offer a diverse
-						range of professional solutions, from residential
-						makeovers to large-scale commercial projects. Whether you
-						seek a bold statement or a timeless, subtle look, our team
-						is dedicated to delivering flawless results that stand the
-						test of time.
+						From humble beginnings as a small family-owned business,
+						we've grown into a trusted name in the industry, known for
+						our attention to detail, professional service, and
+						commitment to excellence.
 					</p>
 				</div>
 			</div>
 
-			<div className="bg-muted p-8 rounded-lg shadow-inner mb-12">
-				<h2 className="text-2xl font-semibold mb-4">
-					Our Commitment to Quality
+			<Card className="mb-12">
+				<CardHeader>
+					<CardTitle className="text-2xl font-semibold">
+						Our Commitment to Quality
+					</CardTitle>
+				</CardHeader>
+				<CardContent>
+					<p className="text-lg mb-4">
+						At Majestic Painting and Decorating, we believe that
+						quality is not just about the paint we use, but the entire
+						experience we provide. From the moment you contact us to
+						the final brushstroke, we ensure:
+					</p>
+					<ul className="list-none space-y-2">
+						<li className="flex items-center">
+							<CheckCircle2 className="mr-2 h-5 w-5 text-primary" />
+							Meticulous preparation of surfaces
+						</li>
+						<li className="flex items-center">
+							<CheckCircle2 className="mr-2 h-5 w-5 text-primary" />
+							Use of premium, eco-friendly paints and materials
+						</li>
+						<li className="flex items-center">
+							<CheckCircle2 className="mr-2 h-5 w-5 text-primary" />
+							Skilled application techniques for a flawless finish
+						</li>
+						<li className="flex items-center">
+							<CheckCircle2 className="mr-2 h-5 w-5 text-primary" />
+							Thorough clean-up and final inspection
+						</li>
+					</ul>
+				</CardContent>
+			</Card>
+
+			<div className="mb-12">
+				<h2 className="text-3xl font-bold mb-6 text-center">
+					Our Values
 				</h2>
-				<p className="text-lg mb-4">
-					We use only the finest materials and innovative techniques
-					to ensure each project is a testament to quality
-					craftsmanship. Our work is more than just a coat of paint;
-					it&apos;s a commitment to enhancing the beauty of your
-					environment, ensuring that each brushstroke brings out the
-					essence of your space.
-				</p>
-				<p className="text-lg">
-					Majestic Painting and Decorating combines art with
-					precision, creating dynamic, harmonious spaces that reflect
-					your style and personality.
-				</p>
+				<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+					{values.map((value, index) => (
+						<Card
+							key={index}
+							className="hover:shadow-lg transition-shadow duration-300"
+						>
+							<CardHeader>
+								<CardTitle className="text-xl font-semibold text-primary">
+									{value.title}
+								</CardTitle>
+							</CardHeader>
+							<CardContent>
+								<p>{value.description}</p>
+							</CardContent>
+						</Card>
+					))}
+				</div>
 			</div>
 
 			<div className="text-center mb-12">
 				<h2 className="text-3xl font-bold mb-4">
-					Your Vision, Our Expertise
+					Ready to Transform Your Space?
 				</h2>
 				<p className="text-xl mb-6">
-					Your property deserves more than just paint; it deserves a
-					lasting impression. With Majestic Painting and Decorating,
-					trust that every detail will be executed with the utmost
-					care and passion, creating a stunning masterpiece tailored
-					to your unique needs.
+					Whether you're looking to refresh your home or update your
+					business premises, our team is ready to bring your vision to
+					life.
 				</p>
 				<Button asChild size="lg">
-					<Link href="/contact">Get in Touch</Link>
+					<Link href="/contact">Get Your Free Quote</Link>
 				</Button>
 			</div>
 		</div>

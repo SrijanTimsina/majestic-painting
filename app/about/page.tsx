@@ -56,13 +56,13 @@ export default function AboutPage() {
 						has been transforming spaces across Sydney for nearly two
 						decades. Our journey began with a simple vision: to
 						provide top-quality painting services that not only meet
-						but exceed our clients' expectations.
+						but exceed our clients&apos; expectations.
 					</p>
 					<p className="text-lg mb-4">
 						From humble beginnings as a small family-owned business,
-						we've grown into a trusted name in the industry, known for
-						our attention to detail, professional service, and
-						commitment to excellence.
+						we&apos;ve grown into a trusted name in the industry,
+						known for our attention to detail, professional service,
+						and commitment to excellence.
 					</p>
 				</div>
 			</div>
@@ -129,9 +129,9 @@ export default function AboutPage() {
 					Ready to Transform Your Space?
 				</h2>
 				<p className="text-xl mb-6">
-					Whether you're looking to refresh your home or update your
-					business premises, our team is ready to bring your vision to
-					life.
+					Whether you&apos;re looking to refresh your home or update
+					your business premises, our team is ready to bring your
+					vision to life.
 				</p>
 				<Button asChild size="lg">
 					<Link href="/contact">Get Your Free Quote</Link>

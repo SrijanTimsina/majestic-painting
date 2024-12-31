@@ -39,14 +39,14 @@ export default function AboutPage() {
 				</div>
 			</div>
 
-			{/* <div className="bg-muted p-8 rounded-lg shadow-inner mb-12">
+			<div className="bg-muted p-8 rounded-lg shadow-inner mb-12">
 				<h2 className="text-2xl font-semibold mb-4">
 					Our Commitment to Quality
 				</h2>
 				<p className="text-lg mb-4">
 					We use only the finest materials and innovative techniques
 					to ensure each project is a testament to quality
-					craftsmanship. Our work is more than just a coat of paint,
+					craftsmanship. Our work is more than just a coat of paint;
 					it&apos;s a commitment to enhancing the beauty of your
 					environment, ensuring that each brushstroke brings out the
 					essence of your space.
@@ -56,7 +56,7 @@ export default function AboutPage() {
 					precision, creating dynamic, harmonious spaces that reflect
 					your style and personality.
 				</p>
-			</div> */}
+			</div>
 
 			<div className="text-center mb-12">
 				<h2 className="text-3xl font-bold mb-4">

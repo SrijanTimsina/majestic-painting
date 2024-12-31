@@ -39,7 +39,7 @@ export default function AboutPage() {
 				</div>
 			</div>
 
-			<div className="bg-muted p-8 rounded-lg shadow-inner mb-12">
+			{/* <div className="bg-muted p-8 rounded-lg shadow-inner mb-12">
 				<h2 className="text-2xl font-semibold mb-4">
 					Our Commitment to Quality
 				</h2>
@@ -56,7 +56,7 @@ export default function AboutPage() {
 					precision, creating dynamic, harmonious spaces that reflect
 					your style and personality.
 				</p>
-			</div>
+			</div> */}
 
 			<div className="text-center mb-12">
 				<h2 className="text-3xl font-bold mb-4">

@@ -47,7 +47,7 @@ export default function AboutPage() {
 					We use only the finest materials and innovative techniques
 					to ensure each project is a testament to quality
 					craftsmanship. Our work is more than just a coat of paint,
-					it's a commitment to enhancing the beauty of your
+					it&apos;s a commitment to enhancing the beauty of your
 					environment, ensuring that each brushstroke brings out the
 					essence of your space.
 				</p>

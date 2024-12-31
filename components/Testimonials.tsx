@@ -96,11 +96,11 @@ export function Testimonials() {
 					{testimonials.map((_, index) => (
 						<Button
 							key={index}
-							variant="ghost"
+							variant="outline"
 							size="sm"
-							className={`mx-1 ${
+							className={`mx-1  ${
 								index === currentTestimonial
-									? "bg-primary text-primary-foreground"
+									? "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground"
 									: ""
 							}`}
 							onClick={() => setCurrentTestimonial(index)}

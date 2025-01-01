@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export function CallButton() {
   const handleCall = () => {
-    window.location.href = "tel:+61212345678";
+    window.location.href = "tel:+61415894507";
   };
 
   return (

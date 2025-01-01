@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Services } from "@/components/Services";
 import { Testimonials } from "@/components/Testimonials";
 import { AnimatedStats } from "@/components/AnimatedStats";
+import { ContactDetails } from "@/components/ContactDetails";
 
 export default function Page() {
   return (
@@ -49,6 +50,7 @@ export default function Page() {
         </section>
         <Services />
         <AnimatedStats />
+        <ContactDetails />
         <Testimonials />
       </main>
     </div>

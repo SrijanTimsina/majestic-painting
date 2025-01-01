@@ -98,11 +98,11 @@ export default function ContactPage() {
               <p>34 Bowden Street, Guildford, NSW 2161, Australia</p>
             </a>
             <a
-              href="tel:+61451894507"
+              href="tel:+61415894507"
               className="flex items-center transition-colors hover:text-primary"
             >
               <Phone className="mr-3 h-6 w-6 text-primary" />
-              <p>0451 894 507</p>
+              <p>+61 415 894 507</p>
             </a>
             <a
               href="mailto:info.majesticpainters@gmail.com"

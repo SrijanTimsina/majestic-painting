@@ -72,7 +72,7 @@ export function AnimatedStats() {
             icon={<Users className="mx-auto h-12 w-12" />}
           />
           <AnimatedStat
-            value={12}
+            value={20}
             label="Years Served"
             duration={900}
             icon={<Calendar className="mx-auto h-12 w-12" />}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Instagram } from "lucide-react";
+import { Facebook, Instagram, MapPin, Phone, Mail } from "lucide-react";
 
 export function Footer() {
   return (
@@ -61,7 +61,7 @@ export function Footer() {
                 className="text-muted-foreground hover:text-primary"
                 target="_blank"
               >
-                <Facebook size={24} />
+                <Facebook size={32} />
                 <span className="sr-only">Facebook</span>
               </a>
               <a
@@ -69,8 +69,33 @@ export function Footer() {
                 className="text-muted-foreground hover:text-primary"
                 target="_blank"
               >
-                <Instagram size={24} />
+                <Instagram size={32} />
                 <span className="sr-only">Instagram</span>
+              </a>
+            </div>
+            <div className="mt-4 space-y-2">
+              <a
+                href="https://goo.gl/maps/YourGoogleMapsLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-muted-foreground hover:text-primary"
+              >
+                <MapPin size={16} className="mr-2" />
+                <span>34 Bowden Street, Guildford, NSW 2161</span>
+              </a>
+              <a
+                href="tel:+61415894507"
+                className="flex items-center text-muted-foreground hover:text-primary"
+              >
+                <Phone size={16} className="mr-2" />
+                <span>+61 415 894 507</span>
+              </a>
+              <a
+                href="mailto:info.majesticpainters@gmail.com"
+                className="flex items-center text-muted-foreground hover:text-primary"
+              >
+                <Mail size={16} className="mr-2" />
+                <span>info.majesticpainters@gmail.com</span>
               </a>
             </div>
           </div>

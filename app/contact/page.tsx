@@ -1,69 +1,127 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  })
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prevState => ({ ...prevState, [name]: value }))
-  }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Here you would typically send the form data to your server
-    console.log('Form submitted:', formData)
-    // Reset form after submission
-    setFormData({ name: '', email: '', message: '' })
-  }
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    setFormData({ name: "", email: "", message: "" });
+  };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-          <Input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
+    <div className="container mx-auto px-4 py-12">
+      <h1 className="mb-8 text-center text-4xl font-bold">Contact Us</h1>
+      <div className="grid gap-12 md:grid-cols-2">
+        <div>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label
+                htmlFor="name"
+                className="mb-1 block text-sm font-medium text-gray-700"
+              >
+                Name
+              </label>
+              <Input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                className="mb-1 block text-sm font-medium text-gray-700"
+              >
+                Email
+              </label>
+              <Input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="message"
+                className="mb-1 block text-sm font-medium text-gray-700"
+              >
+                Message
+              </label>
+              <Textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={4}
+              />
+            </div>
+            <Button type="submit" className="w-full">
+              Send Message
+            </Button>
+          </form>
         </div>
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-          <Input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+        <div className="rounded-lg bg-muted p-8">
+          <h2 className="mb-6 text-2xl font-semibold">Get in Touch</h2>
+          <div className="space-y-4">
+            <a
+              href="https://goo.gl/maps/YourGoogleMapsLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start transition-colors hover:text-primary"
+            >
+              <MapPin className="mr-3 h-6 w-6 flex-shrink-0 text-primary" />
+              <p>34 Bowden Street, Guildford, NSW 2161, Australia</p>
+            </a>
+            <a
+              href="tel:+61451894507"
+              className="flex items-center transition-colors hover:text-primary"
+            >
+              <Phone className="mr-3 h-6 w-6 text-primary" />
+              <p>0451 894 507</p>
+            </a>
+            <a
+              href="mailto:info.majesticpainters@gmail.com"
+              className="flex items-center transition-colors hover:text-primary"
+            >
+              <Mail className="mr-3 h-6 w-6 text-primary" />
+              <p>info.majesticpainters@gmail.com</p>
+            </a>
+          </div>
+          <div className="mt-8">
+            <h3 className="mb-4 text-xl font-semibold">Business Hours</h3>
+            <ul className="space-y-2">
+              <li>Monday - Friday: 8:00 AM - 6:00 PM</li>
+              <li>Saturday: 9:00 AM - 4:00 PM</li>
+              <li>Sunday: Closed</li>
+            </ul>
+          </div>
         </div>
-        <div className="mb-4">
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-          <Textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <Button type="submit">Send Message</Button>
-      </form>
+      </div>
     </div>
-  )
+  );
 }
-

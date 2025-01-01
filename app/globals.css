@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-	font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer base {
 	:root {
 		--background: #ffffff;
@@ -60,6 +56,10 @@ body {
 		--chart-4: #9966cc;
 		--chart-5: #cc6699;
 	}
+}
+
+.container {
+	max-width: 1400px;
 }
 
 @layer base {

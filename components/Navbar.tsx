@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import Image from "next/image";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -26,7 +27,12 @@ export function Navbar() {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0">
-              <span className="text-2xl font-bold text-primary">Logo</span>
+              <Image
+                alt="Majestic Painting and Decorating"
+                src="/logo.png"
+                height={50}
+                width={70}
+              />
             </Link>
           </div>
           <div className="hidden md:block">

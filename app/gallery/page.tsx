@@ -7,7 +7,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -19,79 +18,79 @@ const galleryItems = [
   {
     type: "image",
     src: "/gallery/interior/1.jpeg",
-    alt: "Interior Painting 1",
+    alt: "Interior Painting",
     category: "Interior",
   },
   {
     type: "image",
     src: "/gallery/exterior/1.jpeg",
-    alt: "Exterior Painting 1",
+    alt: "Exterior Painting",
     category: "Exterior",
   },
   {
     type: "image",
     src: "/gallery/commercial/1.jpeg",
-    alt: "Commercial Painting 1",
+    alt: "Commercial Painting",
     category: "Commercial",
   },
   {
     type: "video",
     src: "/gallery/interior/video.mp4",
-    alt: "Interior Painting Video",
+    alt: "Interior Painting",
     category: "Interior",
   },
   {
     type: "image",
     src: "/gallery/exterior/2.jpeg",
-    alt: "Exterior Painting 2",
+    alt: "Exterior Painting",
     category: "Exterior",
   },
   {
     type: "image",
     src: "/gallery/interior/2.jpeg",
-    alt: "Interior Painting 2",
+    alt: "Interior Painting",
     category: "Interior",
   },
   {
     type: "image",
     src: "/gallery/exterior/3.jpeg",
-    alt: "Exterior Painting 3",
+    alt: "Exterior Painting",
     category: "Exterior",
   },
   {
     type: "image",
     src: "/gallery/interior/3.jpeg",
-    alt: "Interior Painting 3",
+    alt: "Interior Painting",
     category: "Interior",
   },
   {
     type: "video",
     src: "/gallery/exterior/video.mp4",
-    alt: "Exterior Painting Video",
+    alt: "Exterior Painting",
     category: "Exterior",
   },
   {
     type: "image",
     src: "/gallery/exterior/4.jpeg",
-    alt: "Exterior Painting 4",
+    alt: "Exterior Painting",
     category: "Exterior",
   },
   {
     type: "image",
     src: "/gallery/interior/4.jpeg",
-    alt: "Interior Painting 4",
+    alt: "Interior Painting",
     category: "Interior",
   },
   {
     type: "image",
     src: "/gallery/commercial/2.jpeg",
-    alt: "Commercial Painting 2",
+    alt: "Commercial Painting",
     category: "Commercial",
   },
   {
     type: "image",
     src: "/gallery/exterior/5.jpeg",
-    alt: "Exterior Painting 5",
+    alt: "Exterior Painting",
     category: "Exterior",
   },
 ];
@@ -172,7 +171,6 @@ export default function GalleryPage() {
         <DialogContent className="w-full max-w-4xl">
           <DialogHeader>
             <DialogTitle>{selectedItem?.alt}</DialogTitle>
-            <DialogDescription>{selectedItem?.category}</DialogDescription>
           </DialogHeader>
           <div className="relative aspect-video">
             {selectedItem?.type === "image" ? (

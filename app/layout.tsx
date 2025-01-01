@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import "./globals.css";
 import { CallButton } from "@/components/CallButton";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,6 +26,7 @@ export default function RootLayout({
         <main className="flex-grow">{children}</main>
         <CallButton />
         <Footer />
+        <Toaster />
       </body>
     </html>
   );

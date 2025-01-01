@@ -11,7 +11,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Play, X } from "lucide-react";
+import { Play } from "lucide-react";
 
 const categories = ["All", "Interior", "Exterior", "Commercial"];
 
@@ -136,7 +136,7 @@ export default function GalleryPage() {
         {filteredItems.map((item, index) => (
           <Card
             key={index}
-            className="group cursor-pointer overflow-hidden hover:shadow-2xl"
+            className="group cursor-pointer overflow-hidden hover:shadow-xl"
             onClick={() => handleItemClick(item)}
           >
             <CardContent className="relative p-0">
@@ -188,15 +188,6 @@ export default function GalleryPage() {
               </video>
             )}
           </div>
-          <Button
-            className="absolute right-2 top-2"
-            variant="ghost"
-            size="icon"
-            onClick={() => setIsDialogOpen(false)}
-          >
-            <X className="h-4 w-4" />
-            <span className="sr-only">Close</span>
-          </Button>
         </DialogContent>
       </Dialog>
     </div>

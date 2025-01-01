@@ -32,17 +32,17 @@ export default function Page() {
                   </Button>
                 </div>
               </div>
-              <div className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last">
+              <div className="mx-auto aspect-video rounded-xl object-cover object-center sm:w-full lg:order-last">
                 <Image
                   alt="Majestic Painting and Decorating"
-                  className="object-cover"
+                  src="/coverPhoto.jpg"
+                  className="rounded-md object-cover"
                   height={400}
-                  src="/placeholder.svg"
+                  width={600}
                   style={{
                     aspectRatio: "600/400",
                     objectFit: "cover",
                   }}
-                  width={600}
                 />
               </div>
             </div>

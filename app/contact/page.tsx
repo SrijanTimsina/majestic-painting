@@ -5,11 +5,17 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail } from "lucide-react";
+import { useForm } from "@formspree/react";
+import { useToast } from "@/hooks/use-toast";
 
 export default function ContactPage() {
+  const { toast } = useToast();
+  const [state, handleSubmit] = useForm("meoorbdj");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     message: "",
   });
 
@@ -20,18 +26,37 @@ export default function ContactPage() {
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", message: "" });
+    try {
+      await handleSubmit(e);
+      toast({
+        variant: "success",
+        description:
+          "Your Message has been sent successfully! We'll get back to you soon.",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description:
+          "There was a problem while submitting your message. Please try again later.",
+      });
+    }
   };
-
   return (
     <div className="container mx-auto px-4 py-12">
       <h1 className="mb-8 text-center text-4xl font-bold">Contact Us</h1>
       <div className="grid gap-12 md:grid-cols-2">
         <div>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={onSubmit} className="space-y-6">
             <div>
               <label
                 htmlFor="name"
@@ -44,6 +69,22 @@ export default function ContactPage() {
                 id="name"
                 name="name"
                 value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="phone"
+                className="mb-1 block text-sm font-medium text-gray-700"
+              >
+                Contact Number
+              </label>
+              <Input
+                type="number"
+                id="phone"
+                name="phone"
+                value={formData.phone}
                 onChange={handleChange}
                 required
               />
@@ -80,7 +121,11 @@ export default function ContactPage() {
                 rows={4}
               />
             </div>
-            <Button type="submit" className="w-full">
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={state.submitting}
+            >
               Send Message
             </Button>
           </form>

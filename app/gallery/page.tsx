@@ -10,7 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Play } from "lucide-react";
+import { Play, ChevronLeft, ChevronRight } from "lucide-react";
 
 const categories = ["All", "Interior", "Exterior", "Commercial"];
 
@@ -97,9 +97,9 @@ const galleryItems = [
 
 export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState("All");
-  const [selectedItem, setSelectedItem] = useState<
-    (typeof galleryItems)[0] | null
-  >(null);
+  const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(
+    null,
+  );
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const filteredItems = useMemo(() => {
@@ -108,10 +108,27 @@ export default function GalleryPage() {
       : galleryItems.filter((item) => item.category === activeCategory);
   }, [activeCategory]);
 
-  const handleItemClick = (item: (typeof galleryItems)[0]) => {
-    setSelectedItem(item);
+  const handleItemClick = (index: number) => {
+    setSelectedItemIndex(index);
     setIsDialogOpen(true);
   };
+
+  const handleNext = () => {
+    setSelectedItemIndex((prevIndex) =>
+      prevIndex === null ? null : (prevIndex + 1) % filteredItems.length,
+    );
+  };
+
+  const handlePrevious = () => {
+    setSelectedItemIndex((prevIndex) =>
+      prevIndex === null
+        ? null
+        : (prevIndex - 1 + filteredItems.length) % filteredItems.length,
+    );
+  };
+
+  const selectedItem =
+    selectedItemIndex !== null ? filteredItems[selectedItemIndex] : null;
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -136,7 +153,7 @@ export default function GalleryPage() {
           <Card
             key={index}
             className="group cursor-pointer overflow-hidden hover:shadow-xl"
-            onClick={() => handleItemClick(item)}
+            onClick={() => handleItemClick(index)}
           >
             <CardContent className="relative p-0">
               {item.type === "image" ? (
@@ -185,6 +202,14 @@ export default function GalleryPage() {
                 Your browser does not support the video tag.
               </video>
             )}
+          </div>
+          <div className="mt-4 flex justify-between">
+            <Button onClick={handlePrevious} variant="outline">
+              <ChevronLeft className="mr-2 h-4 w-4" /> Previous
+            </Button>
+            <Button onClick={handleNext} variant="outline">
+              Next <ChevronRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
         </DialogContent>
       </Dialog>

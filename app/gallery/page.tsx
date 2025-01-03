@@ -35,7 +35,7 @@ const galleryItems = [
   },
   {
     type: "video",
-    src: "/gallery/interior/video.mp4",
+    src: "/gallery/interior/video2.mp4",
     alt: "Interior Painting",
     category: "Interior",
   },
@@ -48,6 +48,12 @@ const galleryItems = [
   {
     type: "image",
     src: "/gallery/interior/2.jpeg",
+    alt: "Interior Painting",
+    category: "Interior",
+  },
+  {
+    type: "video",
+    src: "/gallery/interior/video.mp4",
     alt: "Interior Painting",
     category: "Interior",
   },

@@ -36,7 +36,7 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     emailjs
-      .sendForm("service_1295ne8", "template_hnvh3wj", form.current, {
+      .sendForm("service_1295ne8", "template_k6c5ccb", form.current, {
         publicKey: "pzd5H6YPeo7pn9DcZ",
       })
       .then(

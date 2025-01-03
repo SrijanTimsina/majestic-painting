@@ -1,16 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail } from "lucide-react";
-import { useForm } from "@formspree/react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 export default function ContactPage() {
   const { toast } = useToast();
-  const [state, handleSubmit] = useForm("meoorbdj");
 
   const [formData, setFormData] = useState({
     name: "",
@@ -19,6 +18,9 @@ export default function ContactPage() {
     message: "",
   });
 
+  const form = useRef<HTMLFormElement>(null);
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
@@ -28,35 +30,46 @@ export default function ContactPage() {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      await handleSubmit(e);
-      toast({
-        variant: "success",
-        description:
-          "Your Message has been sent successfully! We'll get back to you soon.",
-      });
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      toast({
-        variant: "destructive",
-        title: "Uh oh! Something went wrong.",
-        description:
-          "There was a problem while submitting your message. Please try again later.",
-      });
+    if (!form.current) {
+      return;
     }
+    setIsSubmitting(true);
+
+    emailjs
+      .sendForm("service_1295ne8", "template_hnvh3wj", form.current, {
+        publicKey: "pzd5H6YPeo7pn9DcZ-C",
+      })
+      .then(
+        () => {
+          toast({
+            variant: "success",
+            description:
+              "Your Message has been sent successfully! We'll get back to you soon.",
+          });
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            message: "",
+          });
+        },
+        () => {
+          toast({
+            variant: "destructive",
+            title: "Uh oh! Something went wrong.",
+            description:
+              "There was a problem while submitting your message. Please try again later.",
+          });
+        },
+      )
+      .finally(() => setIsSubmitting(false));
   };
   return (
     <div className="container mx-auto px-4 py-12">
       <h1 className="mb-8 text-center text-4xl font-bold">Contact Us</h1>
       <div className="grid gap-12 md:grid-cols-2">
         <div>
-          <form onSubmit={onSubmit} className="space-y-6">
+          <form ref={form} onSubmit={onSubmit} className="space-y-6">
             <div>
               <label
                 htmlFor="name"
@@ -121,12 +134,8 @@ export default function ContactPage() {
                 rows={4}
               />
             </div>
-            <Button
-              type="submit"
-              className="w-full"
-              disabled={state.submitting}
-            >
-              Send Message
+            <Button type="submit" className="w-full" disabled={isSubmitting}>
+              {isSubmitting ? "Sending..." : "Send Message"}
             </Button>
           </form>
         </div>

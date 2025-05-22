@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, Users, PaintRoller } from "lucide-react";
+import { Users, PaintRoller } from "lucide-react";
 
 interface StatProps {
   value: number;
@@ -58,7 +58,7 @@ export function AnimatedStats() {
     <section className="border-b bg-muted py-16">
       <div className="container mx-auto px-4">
         <h2 className="mb-12 text-center text-3xl font-bold">Our Impact</h2>
-        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
           <AnimatedStat
             value={18000}
             label="Projects Completed"
@@ -70,12 +70,6 @@ export function AnimatedStats() {
             label="Customers Served"
             duration={900}
             icon={<Users className="mx-auto h-12 w-12" />}
-          />
-          <AnimatedStat
-            value={20}
-            label="Years Served"
-            duration={900}
-            icon={<Calendar className="mx-auto h-12 w-12" />}
           />
         </div>
       </div>

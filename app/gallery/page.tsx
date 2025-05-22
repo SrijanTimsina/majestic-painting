@@ -28,6 +28,12 @@ const galleryItems = [
     category: "Exterior",
   },
   {
+    type: "video",
+    src: "/gallery/interior/video3.mp4",
+    alt: "Interior Painting",
+    category: "Interior",
+  },
+  {
     type: "image",
     src: "/gallery/commercial/1.jpeg",
     alt: "Commercial Painting",
@@ -84,6 +90,12 @@ const galleryItems = [
   {
     type: "image",
     src: "/gallery/interior/4.jpeg",
+    alt: "Interior Painting",
+    category: "Interior",
+  },
+  {
+    type: "video",
+    src: "/gallery/interior/video4.mp4",
     alt: "Interior Painting",
     category: "Interior",
   },
